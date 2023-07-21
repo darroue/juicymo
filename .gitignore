@@ -37,3 +37,4 @@
 config/initializers/simple_form.rb
 
 /.npm
+/.cache
