@@ -1,0 +1,31 @@
+en:
+  simple_form:
+    "yes": 'Ano'
+    "no": 'Ne'
+    required:
+      text: 'povinná'
+      mark: '*'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Prosím zkontrolujte následující chyby:"
+    # Examples
+    labels:
+      defaults:
+        password: 'Heslo'
+      user:
+        new:
+          email: 'E-mail pro přihlášení'
+        edit:
+          email: 'E-mail.'
+    hints:
+      defaults:
+        username: 'Zadejte uživatelské jméno pro přihlášení'
+    #     password: 'No special characters, please.'
+    # include_blanks:
+    #   defaults:
+    #     age: 'Rather not say'
+    # prompts:
+    #   defaults:
+    #     age: 'Select your age'
