@@ -76,6 +76,8 @@ GEM
       uniform_notifier (~> 1.11)
     concurrent-ruby (1.2.2)
     crass (1.0.6)
+    cssbundling-rails (1.2.0)
+      railties (>= 6.0.0)
     date (3.3.3)
     debug (1.8.0)
       irb (>= 1.5.0)
@@ -103,6 +105,8 @@ GEM
     jbuilder (2.11.5)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    jsbundling-rails (1.1.2)
+      railties (>= 6.0.0)
     loofah (2.21.3)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -191,6 +195,9 @@ GEM
     simple_form (5.2.0)
       actionpack (>= 5.2)
       activemodel (>= 5.2)
+    slim (5.1.1)
+      temple (~> 0.10.0)
+      tilt (>= 2.1.0)
     sprockets (4.2.0)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -200,7 +207,9 @@ GEM
       sprockets (>= 3.0.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    temple (0.10.2)
     thor (1.2.2)
+    tilt (2.2.0)
     timeout (0.4.0)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -227,17 +236,20 @@ PLATFORMS
 DEPENDENCIES
   bootsnap
   bullet (~> 7.0)
+  cssbundling-rails (~> 1.2)
   debug
   devise (~> 4.9)
   factory_bot (~> 6.2)
   importmap-rails
   jbuilder
+  jsbundling-rails (~> 1.1)
   pagy (~> 6.0)
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.6)
   rspec-rails (~> 6.0)
   simple_form (~> 5.2)
+  slim (~> 5.1)
   sprockets-rails
   stimulus-rails
   turbo-rails

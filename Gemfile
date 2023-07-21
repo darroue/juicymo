@@ -70,3 +70,7 @@ gem "devise", "~> 4.9"
 gem "pagy", "~> 6.0"
 gem "simple_form", "~> 5.2"
 gem "factory_bot", "~> 6.2"
+gem "slim", "~> 5.1"
+gem "cssbundling-rails", "~> 1.2"
+
+gem "jsbundling-rails", "~> 1.1"
