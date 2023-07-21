@@ -1,0 +1,4 @@
+= render "crud/form" do |f|
+  = f.input :title
+  = f.input :position
+  = f.hidden_field :user_id, value: current_user.id

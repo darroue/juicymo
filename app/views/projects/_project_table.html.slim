@@ -1,0 +1,6 @@
+- target = (local_assigns[:object] || @object)
+- local_assigns[:fields].each do |field|
+  td
+    = target.try(field)
+td
+  = show_link(target.id)

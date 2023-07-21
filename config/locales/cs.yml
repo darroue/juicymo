@@ -1,4 +1,16 @@
 cs:
+  common:
+    new: Nový
+    edit: Upravit
+    show: Detail
+    destroy: Smazat
+    back_to: Zpátky na
+    confirm: Jste si jisti? Tato akce není vratná!
+    actions: Akce
+    updated: byl/a úspěšně uložen/a
+    created: byl/a úspěšně vytvořen/a
+    destroyed: byl/a úspěšně smazán/a
+
   activerecord:
     errors:
       messages:
@@ -6,6 +18,17 @@ cs:
         restrict_dependent_destroy:
           has_one: Nemůžu smazat položku protože existuje závislá/ý/é %{record}
           has_many: Nemůžu smazat položku protože existuje závislé/ý %{record}
+    models:
+      project:
+        zero: Projektu
+        one: Projekt
+        other: Projekty
+    attributes:
+      project:
+        user_id: Uživatel
+        title: Název projektu
+        position: Pozice projektu
+
   date:
     abbr_day_names:
     - Ne

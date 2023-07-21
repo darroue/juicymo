@@ -1,0 +1,12 @@
+.card
+  .card-body
+    .card-title
+      h1
+        = new_label
+
+    = render "form", project: @object
+
+    .row.g-2.mt-1
+      .col-12
+        .btn-group
+          = back_to_link

@@ -31,7 +31,7 @@ module Root
     # in config/environments, which are processed later.
     #
     config.time_zone = 'Europe/Prague'
-    config.i18n.default_locale = 'cs'
+    config.i18n.default_locale = :cs
     # config.eager_load_paths << Rails.root.join("extras")
 
     # Don't generate system test files.
