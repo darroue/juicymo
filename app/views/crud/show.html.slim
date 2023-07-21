@@ -1,0 +1,19 @@
+p style="color: green" = notice
+
+.card
+  .card-body
+    .card-title
+      h1
+        = show_label
+
+    = render @object
+
+    .row.g-2.mt-3
+      .col-12
+        .btn-group
+          = edit_link
+          = back_to_link
+
+      .col
+        .btn-group
+          = destroy_button

@@ -1,0 +1,29 @@
+p style="color: green" = notice
+
+.btn-group.mb-3
+  = new_link
+
+.card
+  .card-body
+    .card-title
+      h1
+        = model_name_plural
+
+    #projects
+      table.table
+        thead
+          - @fields.each do |field|
+            th
+              = field_label(field)
+          th
+            = I18n.t("common.actions")
+
+
+        tbody
+          - @collection.each do |object|
+            tr
+            = render "#{@model.model_name.singular}_table", object: object
+
+      .d-flex.justify-content-center
+        - if @pagy.pages > 1
+          = pagy_bootstrap_nav(@pagy).html_safe
