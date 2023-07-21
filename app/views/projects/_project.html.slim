@@ -1,7 +1,7 @@
 - target = (local_assigns[:object] || @object)
 
 div id="#{dom_id project}"
-  - %i(title position).each do |field|
+  - @fields.each do |field|
     .row.mb-3
       .col
         label.col-form-label
