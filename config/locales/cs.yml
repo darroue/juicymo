@@ -10,6 +10,12 @@ cs:
     updated: byl úspěšně uložen
     created: byl úspěšně vytvořen
     destroyed: byl úspěšně smazán
+    toggled: Úkol přepnut
+  actions:
+    toggle:
+      done: Označit za hotový
+      undone: Označit za nehotový
+
 
   activerecord:
     errors:

@@ -54,7 +54,7 @@ class CrudController < ApplicationController
 
   private
     def set_object
-      @object = model.find(params[:id])
+      @object = model.for_user(current_user).find(params[:id])
     end
 
     def redirect_url(object = nil)

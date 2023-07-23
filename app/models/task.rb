@@ -31,7 +31,7 @@ class Task < ApplicationRecord
       projects: {
         user: current_user
       }
-    )
+    ).order(:id)
   }
 
   scope :for_project, -> (project) {

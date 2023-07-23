@@ -1,4 +1,12 @@
 class TasksController < CrudController
+  def toggle
+    @object = model.for_user(current_user).find(params[:task_id])
+
+    @object.update is_done: !@object.is_done
+
+    redirect_back fallback_location: tasks_path
+  end
+
   private
 
   def model
@@ -6,10 +14,7 @@ class TasksController < CrudController
   end
 
   def allowed_params
-    allowed_params = params.require(:task).permit(:project, :title, :description, :is_done, :attachment, tag_ids: [])
-    allowed_params[:project_id] = project.id
-
-    allowed_params
+    params.require(:task).permit(:project_id, :title, :description, :is_done, :attachment, tag_ids: [])
   end
 
   def index_fields
