@@ -27,7 +27,7 @@ class Task < ApplicationRecord
   validates :title, presence: true
 
   scope :for_user, -> (current_user) {
-    joins(:project).where(
+    includes(:project).where(
       projects: {
         user: current_user
       }
