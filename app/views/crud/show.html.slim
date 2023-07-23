@@ -11,9 +11,9 @@ p style="color: green" = notice
     .row.g-2.mt-3
       .col-12
         .btn-group
-          = edit_link
+          = edit_link(@object.id)
           = back_to_link
 
       .col
         .btn-group
-          = destroy_button
+          = destroy_link(@object.id)

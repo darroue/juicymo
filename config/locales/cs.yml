@@ -7,9 +7,9 @@ cs:
     back_to: Zpátky na
     confirm: Jste si jisti? Tato akce není vratná!
     actions: Akce
-    updated: byl/a úspěšně uložen/a
-    created: byl/a úspěšně vytvořen/a
-    destroyed: byl/a úspěšně smazán/a
+    updated: byl úspěšně uložen
+    created: byl úspěšně vytvořen
+    destroyed: byl úspěšně smazán
 
   activerecord:
     errors:
@@ -23,11 +23,20 @@ cs:
         zero: Projektu
         one: Projekt
         other: Projekty
+      task:
+        zero: Úkolu
+        one: Úkol
+        other: Úkoly
     attributes:
       project:
         user_id: Uživatel
         title: Název projektu
         position: Pozice projektu
+      task:
+        title: Název
+        description: Popis
+        is_done: Dokončeno
+        attachment: Příloha
 
   date:
     abbr_day_names:

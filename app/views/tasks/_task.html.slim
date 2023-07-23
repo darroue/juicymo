@@ -1,0 +1,20 @@
+- target = (local_assigns[:object] || @object)
+
+div id="#{dom_id task}"
+  - @fields.each do |field|
+    - value = target.try(field)
+
+    .row.mb-3
+      .col
+        label.col-form-label
+          = field_label(field)
+      .col
+        - if field == :attachment && (value = target.try(:attachment)).attached?
+          = link_to value.filename, value, target: "_blank"
+        - elsif field == :description
+          = text_area_tag field, value, class: "form-control", disabled: true, readonly: true
+        - else
+          - if field == :is_done
+            = text_field_tag field, I18n.t(value ? "yes" : "no", scope: "simple_form"), class: "form-control", disabled: true, readonly: true
+          - else
+            = text_field_tag field, value, class: "form-control", disabled: true, readonly: true

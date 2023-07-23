@@ -4,12 +4,12 @@ require 'pagy/extras/bootstrap'
 module ApplicationHelper
   include Pagy::Frontend
 
-  def back_to_link
-    link_to back_to_label, try(:"#{@model.model_name.plural}_path"), class: "btn btn-secondary"
+  def new_label
+    I18n.t("common.new") + " " + model_name
   end
 
-  def edit_link
-    link_to edit_label, try(:"edit_#{@model.model_name.singular}_path"), class: "btn btn-primary"
+  def show_label
+    I18n.t("common.show") + " " + model_name_zero
   end
 
   def edit_label
@@ -20,7 +20,7 @@ module ApplicationHelper
     I18n.t("common.back_to") + " " + model_name_plural
   end
 
-  def destroy_to_label
+  def destroy_label
     I18n.t("common.destroy") + " " + model_name
   end
 
@@ -29,19 +29,23 @@ module ApplicationHelper
   end
 
   def new_link
-    link_to new_label, try(:"new_#{@model.model_name.singular}_path"), class: "btn btn-success"
+    raise 'Define me in specific controller_helper!'
   end
 
   def show_link(id)
-    link_to show_label, try(:"#{@model.model_name.singular}_path", id: id), class: "btn btn-info"
+    raise 'Define me in specific controller_helper!'
   end
 
-  def show_label
-    I18n.t("common.show") + " " + model_name_zero
+  def back_to_link
+    raise 'Define me in specific controller_helper!'
   end
 
-  def destroy_button
-    button_to destroy_to_label, @object, class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: I18n.t("common.confirm") }
+  def edit_link
+    raise 'Define me in specific controller_helper!'
+  end
+
+  def destroy_link
+    raise 'Define me in specific controller_helper!'
   end
 
   def model_name(options = {})
@@ -56,14 +60,9 @@ module ApplicationHelper
     model_name(count: 0)
   end
 
-  def new_label
-    I18n.t("common.new") + " " + model_name
-  end
-
   def field_label(field)
     @model.human_attribute_name(field)
   end
-
 
   def create_notice
     model_name + ' ' + I18n.t("common.created")

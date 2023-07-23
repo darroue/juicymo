@@ -23,7 +23,7 @@ class CrudController < ApplicationController
 
     respond_to do |format|
       if @object.save
-        format.html { redirect_to project_url(@object), notice: create_notice }
+        format.html { redirect_to redirect_url(@object), notice: create_notice }
         format.json { render :show, status: :created, location: @object }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -35,7 +35,7 @@ class CrudController < ApplicationController
   def update
     respond_to do |format|
       if @object.update(allowed_params)
-        format.html { redirect_to project_url(@object), notice: update_notice }
+        format.html { redirect_to redirect_url(@object), notice: update_notice }
         format.json { render :show, status: :ok, location: @object }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -48,7 +48,7 @@ class CrudController < ApplicationController
     @object.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: destroy_notice }
+      format.html { redirect_to redirect_url, notice: destroy_notice }
       format.json { head :no_content }
     end
   end
@@ -56,5 +56,9 @@ class CrudController < ApplicationController
   private
     def set_object
       @object = model.find(params[:id])
+    end
+
+    def redirect_url(object = nil)
+      object ? try(:"#{@model.model_name.singular}_url", object) : try(:"#{@model.model_name.plural}_url")
     end
 end

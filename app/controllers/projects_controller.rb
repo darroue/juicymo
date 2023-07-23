@@ -7,7 +7,10 @@ class ProjectsController < CrudController
   end
 
   def allowed_params
-    params.require(:project).permit(:title, :position, :user_id)
+    allowed_params = params.require(:project).permit(:title, :position)
+    allowed_params[user_id] = current_user.id
+
+    allowed_params
   end
 
   def index_fields
