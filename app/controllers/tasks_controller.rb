@@ -8,7 +8,7 @@ class TasksController < CrudController
   end
 
   def allowed_params
-    allowed_params = params.require(:task).permit(:title, :description, :is_done, :attachment)
+    allowed_params = params.require(:task).permit(:title, :description, :is_done, :attachment, tag_ids: [])
     allowed_params[:project_id] = project.id
 
     allowed_params

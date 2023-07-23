@@ -6,5 +6,6 @@
   = f.input :description
   = f.input :is_done, type: :checkbox
   = f.input :attachment
+  = f.association :tags, collection: Tag.for_user(current_user), include_blank: true
 
   = f.button :submit, class: "btn-primary"

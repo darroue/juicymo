@@ -19,3 +19,12 @@ div id="#{dom_id task}"
             = text_field_tag field, I18n.t(value ? "yes" : "no", scope: "simple_form"), class: "form-control", disabled: true, readonly: true
           - else
             = text_field_tag field, value, class: "form-control", disabled: true, readonly: true
+
+  .row.mb-3
+    .col
+      label.col-form-label
+        = field_label(:tags)
+    .col
+      .d-flex.flex-wrap.gap-1
+        - @object.tags.each do |tag|
+          = link_to tag.title, tag, class: "badge bg-secondary"

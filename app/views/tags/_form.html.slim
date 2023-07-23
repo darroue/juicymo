@@ -1,0 +1,8 @@
+= simple_form_for(@object) do |f|
+  = f.error_notification
+  = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+  = f.input :title
+  = f.association :tasks, collection: Task.for_user(current_user), include_blank: true
+
+  = f.button :submit, class: "btn-primary"

@@ -27,6 +27,10 @@ cs:
         zero: Úkolu
         one: Úkol
         other: Úkoly
+      tag:
+        zero: Tagu
+        one: Tag
+        other: Tagy
     attributes:
       project:
         user_id: Uživatel
@@ -37,6 +41,10 @@ cs:
         description: Popis
         is_done: Dokončeno
         attachment: Příloha
+        tags: Tagy
+      tag:
+        title: Název
+        tasks: Úkoly
 
   date:
     abbr_day_names:

@@ -1,0 +1,17 @@
+div id="#{dom_id tag}"
+  .row.mb-3
+    .col
+      label.col-form-label
+        = field_label(:title)
+    .col
+      = text_field_tag :title, @object.title, class: "form-control", disabled: true, readonly: true
+
+  .row.mb-3
+    .col
+      label.col-form-label
+        = field_label(:tasks)
+    .col
+      ul.list-group
+        - @object.tasks.each do |task|
+          li.list-group-item
+            = link_to task.title, [task.project, task]
