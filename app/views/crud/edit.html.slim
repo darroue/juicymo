@@ -1,3 +1,6 @@
+.btn-group.mb-3
+  = new_link
+
 .card
   .card-body
     .card-title
@@ -11,3 +14,6 @@
         .btn-group
           = show_link(@object.id)
           = back_to_link
+
+      .col-12
+        = destroy_link(@object.id)

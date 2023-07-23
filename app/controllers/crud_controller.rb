@@ -4,7 +4,6 @@ class CrudController < ApplicationController
   include ApplicationHelper
 
   def index
-    Pagy::DEFAULT[:items] = 2
     @pagy, @collection = pagy(model.for_user(current_user))
   end
 

@@ -28,4 +28,8 @@ class User < ApplicationRecord
 
   validates :email, email: true
   validates :name, :last_name, presence: true
+
+  has_many :projects, dependent: :destroy
+  has_many :tasks, through: :projects, dependent: :destroy
+  has_many :tags, dependent: :destroy
 end

@@ -37,6 +37,7 @@ cs:
         title: Název projektu
         position: Pozice projektu
       task:
+        project: Projekt
         title: Název
         description: Popis
         is_done: Dokončeno

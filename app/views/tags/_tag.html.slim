@@ -14,4 +14,4 @@ div id="#{dom_id tag}"
       ul.list-group
         - @object.tasks.each do |task|
           li.list-group-item
-            = link_to task.title, [task.project, task]
+            = link_to task.title, task

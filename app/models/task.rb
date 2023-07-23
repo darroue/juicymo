@@ -33,4 +33,10 @@ class Task < ApplicationRecord
       }
     )
   }
+
+  scope :for_project, -> (project) {
+    return unless project
+
+    where(project_id: project.id)
+  }
 end

@@ -29,23 +29,23 @@ module ApplicationHelper
   end
 
   def new_link
-    raise 'Define me in specific controller_helper!'
-  end
-
-  def show_link(id)
-    raise 'Define me in specific controller_helper!'
+    link_to new_label, try(:"new_#{@model.model_name.singular}_path"), class: "btn btn-success"
   end
 
   def back_to_link
-    raise 'Define me in specific controller_helper!'
+    link_to back_to_label, try(:"#{@model.model_name.plural}_path"), class: "btn btn-secondary"
   end
 
-  def edit_link
-    raise 'Define me in specific controller_helper!'
+  def show_link(id)
+    link_to show_label, try(:"#{@model.model_name.singular}_path", id: id), class: "btn btn-info"
   end
 
-  def destroy_link
-    raise 'Define me in specific controller_helper!'
+  def edit_link(id)
+    link_to edit_label, try(:"edit_#{@model.model_name.singular}_path", id: id), class: "btn btn-primary"
+  end
+
+  def destroy_link(id)
+    link_to destroy_label, try(:"#{@model.model_name.singular}_path", id: id), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: I18n.t("common.confirm") }
   end
 
   def model_name(options = {})

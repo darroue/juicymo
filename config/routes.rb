@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :projects do
-    resources :tasks
-  end
+  resources :projects
   resources :tags
+  resources :tasks
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
