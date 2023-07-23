@@ -13,8 +13,8 @@ cs:
     toggled: Úkol přepnut
   actions:
     toggle:
-      done: Označit za hotový
-      undone: Označit za nehotový
+      done: Označit za dokončený
+      undone: Označit za nedokončený
 
 
   activerecord:
