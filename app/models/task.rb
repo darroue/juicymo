@@ -20,9 +20,11 @@
 #
 class Task < ApplicationRecord
   belongs_to :project
+  has_one_attached :attachment
+  has_many :task_tags, dependent: :destroy
+  has_many :tags, through: :task_tags
 
   validates :title, presence: true
-  has_one_attached :attachment
 
   scope :for_user, -> (current_user) {
     joins(:project).where(

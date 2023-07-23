@@ -9,8 +9,9 @@ div id="#{dom_id task}"
         label.col-form-label
           = field_label(field)
       .col
-        - if field == :attachment && (value = target.try(:attachment)).attached?
-          = link_to value.filename, value, target: "_blank"
+        - if field == :attachment
+          - if (value = target.try(:attachment)).attached?
+            = link_to value.filename, value, target: "_blank"
         - elsif field == :description
           = text_area_tag field, value, class: "form-control", disabled: true, readonly: true
         - else
