@@ -19,6 +19,7 @@ cs:
 
     filter: Filtrovat
     reset: Vymazat
+    logout: Odhlásit se
 
 
   activerecord:
@@ -41,6 +42,8 @@ cs:
         zero: Tagu
         one: Tag
         other: Tagy
+      user:
+        one: Uživatel
     attributes:
       project:
         user_id: Uživatel

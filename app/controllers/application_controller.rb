@@ -5,5 +5,5 @@ class ApplicationController < ActionController::Base
 
   before_action :authenticate_user!
   before_action :index_fields, only: :index
-  before_action :set_fields, except: :index
+  before_action :set_fields, except: :index, unless: -> { devise_controller? }
 end
