@@ -1,6 +1,9 @@
 .btn-group.mb-3
   = new_link
 
+
+= yield :filter
+
 .card
   .card-body
     .card-title
@@ -8,20 +11,21 @@
         = model_name_plural
 
     #projects
-      table.table
-        thead
-          - @fields.each do |field|
-            th
-              = field_label(field)
-          th colspan="2"
-            = I18n.t("common.actions")
+      .table-responsive
+        table.table
+          thead
+            - @fields.each do |field|
+              th
+                = field_label(field)
+            th colspan="2"
+              = I18n.t("common.actions")
 
 
-        tbody
-          - @collection.each do |object|
-            tr
-            = render "#{@model.model_name.singular}_table", object: object
+          tbody
+            - @collection.each do |object|
+              tr
+              = render "#{@model.model_name.singular}_table", object: object
 
-      .d-flex.justify-content-center
-        - if @pagy.pages > 1
-          = pagy_bootstrap_nav(@pagy).html_safe
+        .d-flex.justify-content-center
+          - if @pagy.pages > 1
+            = pagy_bootstrap_nav(@pagy).html_safe

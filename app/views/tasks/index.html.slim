@@ -1,0 +1,23 @@
+- content_for :filter do
+  = simple_form_for(@object, url: tasks_url, method: :patch, data: {turbo: false}) do |f|
+    .card.mb-3
+      .card-body
+        .card-title
+          h3
+            = I18n.t("common.filter")
+            |:
+
+        .row
+          .col
+            = f.input :project_ids, type: :collection, collection: Project.for_user(current_user), input_html: {multiple: true}, include_blank: true, required: false, selected: params.dig(:task, :project_ids)
+          .col
+            = f.input :tag_ids, type: :collection, collection: Tag.for_user(current_user), input_html: {multiple: true}, include_blank: true, required: false, selected: params.dig(:task, :tag_ids)
+
+        .row
+          .col
+            .btn-group
+              = f.button :submit, I18n.t("actions.filter"), class: "btn-secondary"
+              = link_to I18n.t("actions.reset"), tasks_path, class: "btn btn-warning"
+
+
+= render template: "crud/index"

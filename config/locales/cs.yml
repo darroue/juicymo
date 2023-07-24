@@ -11,10 +11,14 @@ cs:
     created: byl úspěšně vytvořen
     destroyed: byl úspěšně smazán
     toggled: Úkol přepnut
+    filter: Filtr
   actions:
     toggle:
       done: Označit za dokončený
       undone: Označit za nedokončený
+
+    filter: Filtrovat
+    reset: Vymazat
 
 
   activerecord:
@@ -44,11 +48,13 @@ cs:
         position: Pozice projektu
       task:
         project: Projekt
+        project_ids: Projekty
         title: Název
         description: Popis
         is_done: Dokončeno
         attachment: Příloha
         tags: Tagy
+        tag_ids: Tagy
       tag:
         title: Název
         tasks: Úkoly

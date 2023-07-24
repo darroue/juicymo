@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   resources :projects
   resources :tags
   resources :tasks do
+    collection do
+      match :index, via: %i(get patch)
+    end
     post :toggle
   end
 
