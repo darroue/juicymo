@@ -12,6 +12,8 @@ cs:
     destroyed: byl úspěšně smazán
     toggled: Úkol přepnut
     filter: Filtr
+    search: Vyhledávání
+    query: výrazu
 
   actions:
     toggle:

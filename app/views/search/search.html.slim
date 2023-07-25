@@ -1,0 +1,35 @@
+h1.mb-3
+  = "#{I18n.t("common.search")} #{I18n.t("common.query")}: #{params[:query]}"
+
+.card.mb-3
+  .card-header
+    h2
+      = Project.model_name.human(count: 2)
+      .badge.bg-secondary.ms-1
+        = @projects&.count
+  .card-body
+
+    - @projects&.each do |object|
+      = link_to title(object.title), object
+
+.card.mb-3
+  .card-header
+    h2
+      = Task.model_name.human(count: 2)
+      .badge.bg-secondary.ms-1
+        = @tasks&.count
+  .card-body
+
+    - @tasks&.each do |object|
+      = link_to title(object.title), object
+
+.card.mb-3
+  .card-header
+    h2
+      = Tag.model_name.human(count: 2)
+      .badge.bg-secondary.ms-1
+        = @tags&.count
+  .card-body
+
+    - @tags&.each do |object|
+      = link_to title(object.title), object

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
     end
     post :toggle
   end
+  match :search, controller: :search, via: %i(get post)
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',

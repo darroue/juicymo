@@ -1,5 +1,7 @@
 class CrudController < ApplicationController
   before_action :set_object, only: %i[ show edit update destroy ]
+  before_action :index_fields, only: :index
+  before_action :set_fields, except: :index, unless: -> { devise_controller? }
 
   include ApplicationHelper
 
