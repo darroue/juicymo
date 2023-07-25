@@ -19,10 +19,16 @@ cs:
         remember_me: Zapamatovat
         name: Jméno
         last_name: Přijmení
+        current_password: Aktuální heslo
+      user:
+        edit:
+          password: Nové heslo
+          password_confirmation: Nové heslo znovu
     hints:
       defaults:
         username: 'Zadejte uživatelské jméno pro přihlášení'
         password: Minimálně 6 znaků
+        current_password: zadejte stávající heslo pro potvrzení změn
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'

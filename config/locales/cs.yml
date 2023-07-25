@@ -12,6 +12,7 @@ cs:
     destroyed: byl úspěšně smazán
     toggled: Úkol přepnut
     filter: Filtr
+
   actions:
     toggle:
       done: Označit za dokončený
@@ -22,6 +23,8 @@ cs:
     logout: Odhlásit se
     login: Přihlásit se
     sign_up: Zaregistrovat se
+    edit_user: Účet
+    destroy_user: Smazat Účet
 
   activerecord:
     errors:
@@ -44,7 +47,7 @@ cs:
         one: Tag
         other: Tagy
       user:
-        one: Uživatel
+        one: Účet
     attributes:
       project:
         user_id: Uživatel

@@ -24,12 +24,13 @@ module ApplicationHelper
     I18n.t("common.destroy") + " " + model_name
   end
 
-  def new_label
-    I18n.t("common.new") + " " + model_name
+  def new_label(model = nil)
+    I18n.t("common.new") + " " + model_name({}, model)
   end
 
-  def new_link
-    link_to new_label, try(:"new_#{@model.model_name.singular}_path"), class: "btn btn-success"
+  def new_link(model = nil)
+    model ||= @model
+    link_to new_label(model), try(:"new_#{model.model_name.singular}_path"), class: "btn btn-success"
   end
 
   def back_to_link
@@ -48,8 +49,9 @@ module ApplicationHelper
     link_to destroy_label, try(:"#{@model.model_name.singular}_path", id: id), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: I18n.t("common.confirm") }
   end
 
-  def model_name(options = {})
-    @model.model_name.human(options)
+  def model_name(options = {}, model = nil)
+    model ||= @model
+    model.model_name.human(options)
   end
 
   def model_name_plural
