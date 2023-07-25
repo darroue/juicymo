@@ -21,12 +21,11 @@ FactoryBot.define do
   factory :project do
     title { Faker::Commerce.product_name }
     position { Faker::Number.digit }
-    user { nil }
+    association :user
   end
 
   factory :invalid_project, parent: :project do
     title { nil }
     position { nil }
-    user { nil }
   end
 end

@@ -18,6 +18,11 @@
 #
 FactoryBot.define do
   factory :tag do
-    title { "MyString" }
+    title { Faker::Commerce.product_name }
+    association :user
+  end
+
+  factory :invalid_tag, parent: :tag do
+    title { nil }
   end
 end

@@ -51,4 +51,12 @@ RSpec.describe User, type: :model do
       end
     end
   end
+
+  describe '#destroy' do
+    it 'destroys user' do
+      subject = User.new(attributes_for(:user))
+
+      expect(subject.save!).to be(true)
+    end
+  end
 end

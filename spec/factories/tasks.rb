@@ -22,8 +22,8 @@ FactoryBot.define do
   factory :task do
     title { Faker::Commerce.product_name }
     description { Faker::Quote.famous_last_words }
-    is_done { false }
-    project { create(:project) }
+    is_done { Faker::Boolean.boolean }
+    association :project
   end
 
   factory :invalid_task, parent: :task do

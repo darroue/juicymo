@@ -19,5 +19,44 @@
 require 'rails_helper'
 
 RSpec.describe Tag, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @user = create(:user)
+  end
+
+  describe '#create' do
+    describe 'with valid attributes' do
+      it 'creates tag' do
+        subject = Tag.new(attributes_for(:tag).merge(user: @user))
+
+        expect(subject.save!).to be(true)
+      end
+
+      it 'raises Tag count' do
+        subject = Tag.new(attributes_for(:tag).merge(user: @user))
+
+        expect { subject.save! }.to change(Tag, :count).by(1)
+      end
+    end
+
+    describe 'with invalid attributes' do
+      it 'raises validation error' do
+        subject = Tag.new(attributes_for(:invalid_tag).merge(user: @user))
+        expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+
+      it "doesn't raise Tag count" do
+        subject = Tag.new(attributes_for(:invalid_tag).merge(user: @user))
+
+        expect { subject.save }.to change(Tag, :count).by(0)
+      end
+    end
+  end
+
+  describe '#destroy' do
+    it 'destroys tag' do
+      subject = Tag.new(attributes_for(:tag).merge(user: @user))
+
+      expect(subject.save!).to be(true)
+    end
+  end
 end

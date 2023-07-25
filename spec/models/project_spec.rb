@@ -20,5 +20,44 @@
 require 'rails_helper'
 
 RSpec.describe Project, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  before do
+    @user = create(:user)
+  end
+
+  describe '#create' do
+    describe 'with valid attributes' do
+      it 'creates project' do
+        subject = Project.new(attributes_for(:project).merge(user: @user))
+
+        expect(subject.save!).to be(true)
+      end
+
+      it 'raises Project count' do
+        subject = Project.new(attributes_for(:project).merge(user: @user))
+
+        expect { subject.save! }.to change(Project, :count).by(1)
+      end
+    end
+
+    describe 'with invalid attributes' do
+      it 'raises validation error' do
+        subject = Project.new(attributes_for(:invalid_project).merge(user: @user))
+        expect { subject.save! }.to raise_error(ActiveRecord::RecordInvalid)
+      end
+
+      it "doesn't raise Project count" do
+        subject = Project.new(attributes_for(:invalid_project).merge(user: @user))
+
+        expect { subject.save }.to change(Project, :count).by(0)
+      end
+    end
+  end
+
+  describe '#destroy' do
+    it 'destroys project' do
+      subject = Project.new(attributes_for(:project).merge(user: @user))
+
+      expect(subject.save!).to be(true)
+    end
+  end
 end
