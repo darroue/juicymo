@@ -1,6 +1,6 @@
 class SearchController < ApplicationController
   def search
-    return unless params[:query]
+    return unless params[:query].present?
 
     @projects = find(Project)
     @tasks = find(Task)
@@ -9,7 +9,7 @@ class SearchController < ApplicationController
   end
 
   def find(clazz)
-    clazz.where("unaccent(lower(title)) LIKE ?", "%#{query}%")
+    clazz.for_user(current_user).where("unaccent(lower(#{clazz.table_name}.title)) LIKE ?", "%#{query}%")
   end
 
   def query
