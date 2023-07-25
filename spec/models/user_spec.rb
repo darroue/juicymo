@@ -53,10 +53,13 @@ RSpec.describe User, type: :model do
   end
 
   describe '#destroy' do
-    it 'destroys user' do
-      subject = User.new(attributes_for(:user))
+    it 'destroys user and related objects' do
+      subject = User.create(attributes_for(:user))
+      subject.projects << create(:project)
+      subject.tags << create(:tag)
+      subject.projects.first.tasks << create(:task)
 
-      expect(subject.save!).to be(true)
+      expect {subject.destroy}.to change {User.count}.by(-1).and change {Project.count}.by(-1).and change {Tag.count}.by(-1).and change {Task.count}.by(-1)
     end
   end
 end

@@ -55,9 +55,18 @@ RSpec.describe Project, type: :model do
 
   describe '#destroy' do
     it 'destroys project' do
-      subject = Project.new(attributes_for(:project).merge(user: @user))
+      subject = Project.create(attributes_for(:project).merge(user: @user))
 
-      expect(subject.save!).to be(true)
+      expect {subject.destroy}.to change {Project.count}.by(-1)
+    end
+  end
+
+  describe '.for_user(user)' do
+    it 'should return only user projects' do
+      Project.create(attributes_for(:project).merge(user: @user))
+      3.times { Project.create(attributes_for(:project).merge(user: create(:user))) }
+
+      expect(Project.for_user(@user).pluck(:user_id).uniq).to eq([@user.id])
     end
   end
 end
