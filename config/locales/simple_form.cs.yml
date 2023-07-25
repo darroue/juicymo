@@ -13,16 +13,16 @@ cs:
     # Examples
     labels:
       defaults:
-        password: 'Heslo'
-      user:
-        new:
-          email: 'E-mail pro přihlášení'
-        edit:
-          email: 'E-mail.'
+        password: Heslo
+        password_confirmation: Heslo znovu
+        email: 'E-mail.'
+        remember_me: Zapamatovat
+        name: Jméno
+        last_name: Přijmení
     hints:
       defaults:
         username: 'Zadejte uživatelské jméno pro přihlášení'
-    #     password: 'No special characters, please.'
+        password: Minimálně 6 znaků
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'

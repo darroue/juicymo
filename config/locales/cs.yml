@@ -20,7 +20,8 @@ cs:
     filter: Filtrovat
     reset: Vymazat
     logout: Odhlásit se
-
+    login: Přihlásit se
+    sign_up: Zaregistrovat se
 
   activerecord:
     errors:
