@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tasks
@@ -26,21 +28,21 @@ class Task < ApplicationRecord
 
   validates :title, presence: true
 
-  scope :for_user, -> (current_user) {
+  scope :for_user, lambda { |current_user|
     includes(:project).where(
       projects: {
         user: current_user
       }
-    ).order(:id)
+    ).order(:created_at)
   }
 
-  scope :for_params, -> (scope, params) {
+  scope :for_params, lambda { |scope, params|
     if (project_ids = params[:project_ids].try(:reject, &:empty?)).present?
       scope = scope.where(project_id: project_ids)
     end
 
     if (tag_ids = params[:tag_ids].try(:reject, &:empty?)).present?
-      scope = scope.joins(:tags).where( tags: {id: tag_ids})
+      scope = scope.joins(:tags).where(tags: { id: tag_ids })
     end
 
     scope

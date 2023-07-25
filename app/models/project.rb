@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: projects
@@ -23,7 +25,7 @@ class Project < ApplicationRecord
 
   validates :title, :position, presence: true
 
-  scope :for_user, -> (user) {
-    where(user: user).order(:position)
+  scope :for_user, lambda { |user|
+    where(user:).order(:position)
   }
 end

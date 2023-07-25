@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: projects
@@ -57,7 +59,7 @@ RSpec.describe Project, type: :model do
     it 'destroys project' do
       subject = Project.create(attributes_for(:project).merge(user: @user))
 
-      expect {subject.destroy}.to change {Project.count}.by(-1)
+      expect { subject.destroy }.to change { Project.count }.by(-1)
     end
   end
 

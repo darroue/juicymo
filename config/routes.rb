@@ -5,15 +5,15 @@ Rails.application.routes.draw do
   resources :tags
   resources :tasks do
     collection do
-      match :index, via: %i(get patch)
+      match :index, via: %i[get patch]
     end
     post :toggle
   end
-  match :search, controller: :search, via: %i(get post)
+  match :search, controller: :search, via: %i[get post]
 
   devise_for :users, controllers: {
-    registrations: 'users/registrations',
+    registrations: 'users/registrations'
   }
 
-  root "tasks#index"
+  root 'tasks#index'
 end

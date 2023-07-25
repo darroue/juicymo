@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tags
@@ -56,7 +58,7 @@ RSpec.describe Tag, type: :model do
     it 'destroys tag' do
       subject = Tag.create(attributes_for(:tag).merge(user: @user))
 
-      expect {subject.destroy}.to change {Tag.count}.by(-1)
+      expect { subject.destroy }.to change { Tag.count }.by(-1)
     end
   end
 

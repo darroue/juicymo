@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TagsController < CrudController
   private
 
@@ -12,11 +14,7 @@ class TagsController < CrudController
     allowed_params
   end
 
-  def index_fields
-    @fields ||= %i(title)
-  end
-
-  def set_fields
-    @fields ||= %i(title tasks)
+  def fields
+    @fields ||= action_name == 'index' ? %i[title] : %i[title tasks]
   end
 end

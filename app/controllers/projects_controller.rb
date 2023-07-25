@@ -1,5 +1,6 @@
-class ProjectsController < CrudController
+# frozen_string_literal: true
 
+class ProjectsController < CrudController
   private
 
   def model
@@ -13,11 +14,7 @@ class ProjectsController < CrudController
     allowed_params
   end
 
-  def index_fields
-    @fields ||= %i(title position)
-  end
-
-  def set_fields
-    @fields ||= %i(title position)
+  def fields
+    @fields ||= %i[title position]
   end
 end

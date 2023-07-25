@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SearchController < ApplicationController
   def search
     return unless params[:query].present?
@@ -5,7 +7,7 @@ class SearchController < ApplicationController
     @projects = find(Project)
     @tasks = find(Task)
     @tags = find(Tag)
-    @fields = %w(title)
+    @fields = %w[title]
   end
 
   def find(clazz)

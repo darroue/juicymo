@@ -1,7 +1,8 @@
+# frozen_string_literal: true
+
 class CrudController < ApplicationController
-  before_action :set_object, only: %i[ show edit update destroy ]
-  before_action :index_fields, only: :index
-  before_action :set_fields, except: :index, unless: -> { devise_controller? }
+  before_action :set_object, only: %i[show edit update destroy]
+  before_action :fields, unless: -> { devise_controller? }
 
   include ApplicationHelper
 
@@ -9,15 +10,13 @@ class CrudController < ApplicationController
     @pagy, @collection = pagy(model.for_user(current_user))
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @object = model.new
   end
 
-  def edit
-  end
+  def edit; end
 
   def create
     @object = model.new(allowed_params)
@@ -55,11 +54,12 @@ class CrudController < ApplicationController
   end
 
   private
-    def set_object
-      @object = model.for_user(current_user).find(params[:id])
-    end
 
-    def redirect_url(object = nil)
-      object ? try(:"#{@model.model_name.singular}_url", object) : try(:"#{@model.model_name.plural}_url")
-    end
+  def set_object
+    @object = model.for_user(current_user).find(params[:id])
+  end
+
+  def redirect_url(object = nil)
+    object ? try(:"#{@model.model_name.singular}_url", object) : try(:"#{@model.model_name.plural}_url")
+  end
 end

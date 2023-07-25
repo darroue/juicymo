@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class TasksController < CrudController
   def index
     @object = model.new
@@ -28,11 +30,7 @@ class TasksController < CrudController
     params.require(:task).permit(project_ids: [], tag_ids: [])
   end
 
-  def index_fields
-    @fields ||= %i(project title is_done)
-  end
-
-  def set_fields
-    @fields ||= %i(project title description is_done attachment)
+  def fields
+    @fields ||= action_name == 'index' ? %i[project title is_done] : %i[project title description is_done attachment]
   end
 end

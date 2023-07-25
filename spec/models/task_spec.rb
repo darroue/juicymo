@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tasks
@@ -59,7 +61,7 @@ RSpec.describe Task, type: :model do
     it 'destroys task' do
       subject = Task.create(attributes_for(:task).merge(project: @project))
 
-      expect {subject.destroy}.to change {Task.count}.by(-1)
+      expect { subject.destroy }.to change { Task.count }.by(-1)
     end
   end
 
@@ -75,14 +77,14 @@ RSpec.describe Task, type: :model do
   describe '.for_params(scope, params)' do
     it 'should return only tasks for project' do
       subject = Task.create(attributes_for(:task).merge(project: @project))
-      expect(Task.for_params(Task.for_user(@user), { project_ids: [@project.id.to_s]})).to eq([subject])
+      expect(Task.for_params(Task.for_user(@user), { project_ids: [@project.id.to_s] })).to eq([subject])
     end
 
     it 'should return only tasks for tags' do
       tags = []
-      2.times{tags << create(:tag)}
-      subject2 = Task.create(attributes_for(:task).merge(project: @project, tags: tags))
-      expect(Task.for_params(Task.for_user(@user), { tag_ids: [tags.map(&:id).map(&:to_s)]})).to eq([subject2])
+      2.times { tags << create(:tag) }
+      subject2 = Task.create(attributes_for(:task).merge(project: @project, tags:))
+      expect(Task.for_params(Task.for_user(@user), { tag_ids: [tags.map(&:id).map(&:to_s)] })).to eq([subject2])
     end
   end
 end

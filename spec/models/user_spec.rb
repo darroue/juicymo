@@ -59,7 +59,13 @@ RSpec.describe User, type: :model do
       subject.tags << create(:tag)
       subject.projects.first.tasks << create(:task)
 
-      expect {subject.destroy}.to change {User.count}.by(-1).and change {Project.count}.by(-1).and change {Tag.count}.by(-1).and change {Task.count}.by(-1)
+      expect { subject.destroy }
+        .to change { User.count }
+        .by(-1)
+        .and change { Project.count }
+        .by(-1).and change { Tag.count }
+        .by(-1).and change { Task.count }
+        .by(-1)
     end
   end
 end

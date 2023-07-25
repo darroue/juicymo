@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tags
@@ -23,7 +25,7 @@ class Tag < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
 
-  scope :for_user, -> (user) {
-    where(user: user)
+  scope :for_user, lambda { |user|
+    where(user:)
   }
 end
