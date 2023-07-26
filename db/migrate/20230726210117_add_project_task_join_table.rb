@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AddProjectTaskJoinTable < ActiveRecord::Migration[7.0]
   def change
     create_table :projects_tasks do |t|

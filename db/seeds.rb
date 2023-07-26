@@ -42,7 +42,8 @@ user_emails = []
 
   tasks = []
   30.times do
-    tasks << attributes_for(:task, user_id: user.id, project_ids: tags.sample(rand(10)).map(&:id), tag_ids: tags.sample(rand(10)).map(&:id))
+    tasks << attributes_for(:task, user_id: user.id, project_ids: projects.sample(rand(10)).map(&:id),
+                                   tag_ids: tags.sample(rand(10)).map(&:id))
   rescue StandardError
     next
   end

@@ -36,7 +36,7 @@ class Task < ApplicationRecord
 
   scope :for_params, lambda { |scope, params|
     if (project_ids = params[:project_ids].try(:reject, &:empty?)).present?
-      scope = scope.joins(:projects).where(projects: {id:project_ids})
+      scope = scope.joins(:projects).where(projects: { id: project_ids })
     end
 
     if (tag_ids = params[:tag_ids].try(:reject, &:empty?)).present?

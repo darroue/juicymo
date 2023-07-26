@@ -15,7 +15,7 @@ class ProjectsController < CrudController
   end
 
   def fields
-    @fields ||= if action_name == "index"
+    @fields ||= if action_name == 'index'
                   %i[title position]
                 else
                   %i[title position tasks]
