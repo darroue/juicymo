@@ -21,7 +21,7 @@
 #
 class Project < ApplicationRecord
   belongs_to :user
-  has_many :tasks, dependent: :destroy
+  has_and_belongs_to_many :tasks, dependent: :nulify
 
   validates :title, :position, presence: true
 

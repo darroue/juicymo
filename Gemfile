@@ -74,9 +74,9 @@ end
 gem 'cssbundling-rails', '~> 1.2'
 gem 'devise', '~> 4.9'
 gem 'email_validator', '~> 2.2'
+gem 'factory_bot_rails', '~> 6.2', require: false
+gem 'faker', '~> 3.2', require: false
 gem 'jsbundling-rails', '~> 1.1'
 gem 'pagy', '~> 6.0'
 gem 'simple_form', '~> 5.2'
 gem 'slim', '~> 5.1'
-gem 'factory_bot_rails', '~> 6.2', require: false
-gem 'faker', '~> 3.2', require: false
