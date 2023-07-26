@@ -11,7 +11,7 @@ div id="#{dom_id tag}"
       label.col-form-label
         = field_label(:tasks)
     .col
-      ul.list-group
+      ul
         - @object.tasks.each do |task|
-          li.list-group-item
+          li
             = link_to task.title, task
