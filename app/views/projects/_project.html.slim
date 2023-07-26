@@ -7,4 +7,10 @@ div id="#{dom_id project}"
         label.col-form-label
           = field_label(field)
       .col
-        = text_field_tag field, target.try(field), class: "form-control", disabled: true, readonly: true
+        - if field == :tasks
+          ul
+            - target.try(field).each do |task|
+              li
+                = link_to task.title, task
+        - else
+          = text_field_tag field, target.try(field), class: "form-control", disabled: true, readonly: true

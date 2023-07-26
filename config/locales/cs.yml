@@ -61,8 +61,9 @@ cs:
         user_id: Uživatel
         title: Název projektu
         position: Pozice projektu
+        tasks: Úkoly
       task:
-        project: Projekt
+        projects: Projekty
         project_ids: Projekty
         title: Název
         description: Popis

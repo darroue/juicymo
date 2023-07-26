@@ -4,6 +4,10 @@
 
   = f.input :title
   = f.input :position
-  = f.hidden_field :user_id, value: current_user.id
+  .row.align-items-center
+    .col-md-9
+      = f.association :tasks, collection: Task.for_user(current_user), include_blank: true
+    .col.pt-md-3.mb-md-0.mb-3
+      = new_link(Task)
 
   = f.button :submit, class: "btn-primary"

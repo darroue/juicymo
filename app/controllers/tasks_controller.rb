@@ -37,7 +37,7 @@ class TasksController < CrudController
   end
 
   def allowed_params
-    params.require(:task).permit(:project_id, :title, :description, :is_done, :attachment, tag_ids: [])
+    params.require(:task).permit(:title, :description, :is_done, :attachment, tag_ids: [], project_ids: [])
   end
 
   def params_for_filter
@@ -47,10 +47,10 @@ class TasksController < CrudController
   def fields
     @fields ||= if %w[index done
                       undone].include?(action_name)
-                  %i[project title
+                  %i[title
                      is_done]
                 else
-                  %i[project title description is_done attachment]
+                  %i[projects title description is_done attachment]
                 end
   end
 end

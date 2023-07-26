@@ -8,13 +8,17 @@ class ProjectsController < CrudController
   end
 
   def allowed_params
-    allowed_params = params.require(:project).permit(:title, :position)
+    allowed_params = params.require(:project).permit(:title, :position, task_ids: [])
     allowed_params[:user_id] = current_user.id
 
     allowed_params
   end
 
   def fields
-    @fields ||= %i[title position]
+    @fields ||= if action_name == "index"
+                  %i[title position]
+                else
+                  %i[title position tasks]
+                end
   end
 end
