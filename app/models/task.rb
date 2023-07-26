@@ -45,6 +45,10 @@ class Task < ApplicationRecord
       scope = scope.joins(:tags).where(tags: { id: tag_ids })
     end
 
+    unless (is_done = params[:is_done]).nil?
+      scope = scope.where(is_done:)
+    end
+
     scope
   }
 end

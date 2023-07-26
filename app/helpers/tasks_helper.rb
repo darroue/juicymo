@@ -10,4 +10,13 @@ module TasksHelper
                                                                        data: { turbo_method: :post }
     end
   end
+
+  def link_params
+    {
+      task: {
+        project_ids: params.dig(:task, :project_ids) || [],
+        tag_ids: params.dig(:task, :tag_ids) || []
+      }
+    }
+  end
 end

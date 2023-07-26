@@ -3,7 +3,23 @@
 class TasksController < CrudController
   def index
     @object = model.new
-    @pagy, @collection = pagy(model.for_params(model.for_user(current_user), filter_params))
+    @pagy, @collection = pagy(model.for_params(model.for_user(current_user), params_for_filter))
+  end
+
+  def done
+    params_for_filter[:is_done] = @is_done = true
+
+    index
+
+    render :index
+  end
+
+  def undone
+    params_for_filter[:is_done] = @is_done = false
+
+    index
+
+    render :index
   end
 
   def toggle
@@ -24,13 +40,17 @@ class TasksController < CrudController
     params.require(:task).permit(:project_id, :title, :description, :is_done, :attachment, tag_ids: [])
   end
 
-  def filter_params
-    return {} unless params['task']
-
-    params.require(:task).permit(project_ids: [], tag_ids: [])
+  def params_for_filter
+    @params_for_filter ||= (params['task'] ? params.require(:task).permit(:is_done, project_ids: [], tag_ids: []) : {})
   end
 
   def fields
-    @fields ||= action_name == 'index' ? %i[project title is_done] : %i[project title description is_done attachment]
+    @fields ||= if %w[index done
+                      undone].include?(action_name)
+                  %i[project title
+                     is_done]
+                else
+                  %i[project title description is_done attachment]
+                end
   end
 end

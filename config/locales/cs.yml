@@ -28,6 +28,12 @@ cs:
     edit_user: Účet
     destroy_user: Smazat Účet
 
+  tabs:
+    is_done:
+      all: "Všechny"
+      done: "Dokončené"
+      undone: "Nedokončené"
+
   activerecord:
     errors:
       messages:

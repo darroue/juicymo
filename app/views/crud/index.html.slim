@@ -1,7 +1,6 @@
 .btn-group.mb-3
   = new_link
 
-
 = yield :filter
 
 .card
@@ -10,7 +9,9 @@
       h1
         = model_name_plural
 
-    #projects
+    #table
+      = yield :tabs
+
       .table-responsive
         table.table
           thead

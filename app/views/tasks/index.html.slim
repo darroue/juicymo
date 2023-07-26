@@ -19,5 +19,16 @@
               = f.button :submit, I18n.t("actions.filter"), class: "btn-secondary"
               = link_to I18n.t("actions.reset"), tasks_path, class: "btn btn-warning"
 
+    - if !@is_done.nil?
+      = f.hidden_field :is_done, value: @is_done
+
+- content_for :tabs do
+  ul.nav.nav-tabs
+    li.nav-item
+      = link_to I18n.t("tabs.is_done.all"), tasks_path(link_params), class: "nav-link #{'active' if action_name == 'index'}"
+    li.nav-item
+      = link_to I18n.t("tabs.is_done.done"), done_tasks_path(link_params), class: "nav-link #{'active' if action_name == 'done'}"
+    li.nav-item
+      = link_to I18n.t("tabs.is_done.undone"), undone_tasks_path(link_params), class: "nav-link #{'active' if action_name == 'undone'}"
 
 = render template: "crud/index"

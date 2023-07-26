@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   resources :tasks do
     collection do
       match :index, via: %i[get patch]
+      get :done
+      get :undone
     end
     post :toggle
   end
