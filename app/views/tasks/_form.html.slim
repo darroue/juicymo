@@ -4,7 +4,7 @@
 
   .row.align-items-center
     .col-md-9
-      = f.association :project
+      = f.association :project, collection: Project.for_user(current_user)
     .col.pt-md-3.mb-md-0.mb-3
       = new_link(Project)
   = f.input :title
