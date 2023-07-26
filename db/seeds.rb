@@ -23,29 +23,28 @@ user_emails = []
   end
   user_emails << user.email
 
-  projects = []
+  project_attrs = []
   30.times do
-    projects << attributes_for(:project, user_id: user.id)
+    project_attrs << attributes_for(:project, user_id: user.id)
   rescue StandardError
     next
   end
-  projects = Project.create(projects)
+  projects = Project.create(project_attrs)
 
-  tags = []
+
+  tag_attrs = []
   30.times do
-    tags << attributes_for(:tag, user_id: user.id)
+    tag_attrs << attributes_for(:tag, user_id: user.id)
   rescue StandardError
     next
   end
-  tags = Tag.create(tags)
+  tags = Tag.create(tag_attrs)
 
   tasks = []
-  projects.each do |project|
-    rand(30).times do
-      tasks << attributes_for(:task, project_id: project.id, tag_ids: tags.sample(rand(10)).map(&:id))
-    rescue StandardError
-      next
-    end
+  30.times do
+    tasks << attributes_for(:task, user_id: user.id, project_ids: tags.sample(rand(10)).map(&:id), tag_ids: tags.sample(rand(10)).map(&:id))
+  rescue StandardError
+    next
   end
 
   Task.create(tasks)
