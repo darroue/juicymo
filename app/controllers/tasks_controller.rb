@@ -37,7 +37,10 @@ class TasksController < CrudController
   end
 
   def allowed_params
-    params.require(:task).permit(:title, :description, :is_done, :attachment, tag_ids: [], project_ids: [])
+    allowed_params = params.require(:task).permit(:title, :description, :is_done, :attachment, tag_ids: [], project_ids: [])
+    allowed_params[:user_id] = current_user.id
+
+    allowed_params
   end
 
   def params_for_filter
