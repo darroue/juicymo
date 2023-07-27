@@ -17,4 +17,3 @@ Follow these steps in order to start application:
 6) *this step is optional*: Seed database with data by executing `bundle exec rails db:seed`
 7) start server with `bundle exec rails s -p 3000`
 8) you can now access web app in your browser on http://localhost:3000
-9) 
