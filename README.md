@@ -10,7 +10,7 @@ To make this application work, you need working Ruby environment with version at
 Follow these steps in order to start application:
 
 1) create `.env` file based on `.env.example`
-2) load this file in terminal with command `source .env`
+2) load this file in terminal with command [source .env]
 3) install dependencies with `bundle install`
 4) create database (unless already exists) with `bundle exec rails db:create`
 5) import database migrations with `bundle exec rails db:migrate`
