@@ -23,9 +23,10 @@ class Project < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :tasks, dependent: :nulify
 
-  validates :title, :position, presence: true
+  validates :title, presence: true
+  validates :position, uniqueness: { scope: :user_id }
 
   scope :for_user, lambda { |user|
-    where(user:).order(:position)
+    where(user:).order(:position, :updated_at)
   }
 end
