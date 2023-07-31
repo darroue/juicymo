@@ -74,6 +74,10 @@ cs:
       tag:
         title: Název
         tasks: Úkoly
+      user:
+        password: Heslo
+        password_confirmation: Heslo pro kontrolu
+        current_password: Aktuální Heslo
 
   date:
     abbr_day_names:
