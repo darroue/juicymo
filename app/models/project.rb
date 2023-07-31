@@ -29,4 +29,8 @@ class Project < ApplicationRecord
   scope :for_user, lambda { |user|
     where(user:).order(:position, :updated_at)
   }
+
+  def self.next_position_for_user(current_user)
+    (for_user(current_user).order(:position).last&.position || 0).next
+  end
 end

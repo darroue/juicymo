@@ -3,7 +3,7 @@
   = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 
   = f.input :title
-  = f.input :position
+  = f.input :position, input_html: {value: action_name == "new" ? @model.next_position_for_user(current_user) : f.object.position}
   .row.align-items-center
     .col-md-9
       = f.association :tasks, collection: Task.for_user(current_user), include_blank: true
