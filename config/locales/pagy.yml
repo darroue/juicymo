@@ -1,0 +1,19 @@
+cs:
+  pagy:
+    item_name:
+      one: "položka"
+      other: "položky"
+
+    nav:
+      prev: "&lsaquo;&nbsp;Předchozí"
+      next: "Další&nbsp;&rsaquo;"
+      gap: "&hellip;"
+
+    info:
+      no_items: "Žádná/é %{item_name} nalezeny"
+      single_page: "Zobrazuji <b>%{count}</b> %{item_name}"
+      multiple_pages: "Zobrazuji %{item_name} <b>%{from}-%{to}</b> z <b>%{count}</b> celkem"
+
+    combo_nav_js: "<label>Stránka %{page_input} z %{pages}</label>"
+
+    items_selector_js: "<label>Zobrazuji %{items_input} %{item_name} pro stránku  </label>"
